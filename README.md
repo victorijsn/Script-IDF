@@ -1,2 +1,2 @@
-# scriptsR_beta
+# ScriptsR_beta
 Repositório com Scripts R em fase de testes.
