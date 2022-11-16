@@ -6,6 +6,9 @@
 
 D1 <- function(base){
 
+  require(data.table)
+  dado <- base
+  
   # chamando as funções de calcular os componentes --------------------------
   
   source("Script/DIM01/D1_C1.R", encoding = "UTF-8") # componente 01 / D1_C1
@@ -18,22 +21,24 @@ D1 <- function(base){
 
 
   # calculando a variável idade caso ela não exista -------------------------
-  if (("aux_idade" %in% colnames(base)) == TRUE) {
-    base <- base
+  
+  if (("aux_idade" %in% colnames(dado)) == TRUE) {
+    dado <- dado
   } else {
     source("Script/AUXILIARES/auxiliar_idade.R") # auxiliar idade
-    base <- auxiliar_idade(base)
+    dado <- auxiliar_idade(dado)
   }
   
 
   # calculando os componentes -----------------------------------------------
-  dado1 <- D1_C1(base) # componente 1.1
-  dado2 <- D1_C2(base) # componente 1.2
-  dado3 <- D1_C3(base) # componente 1.3
-  dado4 <- D1_C4(base) # componente 1.4
-  dado5 <- D1_C5(base) # componente 1.5
-  dado6 <- D1_C6(base) # componente 1.6
-  dado7 <- D1_C7(base) # componente 1.7
+  
+  dado1 <- D1_C1(dado) # componente 1.1
+  dado2 <- D1_C2(dado) # componente 1.2
+  dado3 <- D1_C3(dado) # componente 1.3
+  dado4 <- D1_C4(dado) # componente 1.4
+  dado5 <- D1_C5(dado) # componente 1.5
+  dado6 <- D1_C6(dado) # componente 1.6
+  dado7 <- D1_C7(dado) # componente 1.7
   
 
   # juntando os componentes em uma única base -------------------------------
@@ -59,7 +64,11 @@ D1 <- function(base){
                                         d1_c6, 
                                         d1_c7)))]
   
-  saida <- dado[, .(d.cod_familiar_fam, d1)]
+
+  # saida -------------------------------------------------------------------
+
+  saida <- dado[, .(d.cod_familiar_fam,
+                    d1)]
   
   return(saida)
 }

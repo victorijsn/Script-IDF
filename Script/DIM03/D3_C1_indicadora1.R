@@ -9,20 +9,31 @@
 D3_C1_I1 <- function(base) {
   
   require(data.table)
+  dado <- base
   
-  if ("aux_idade" %chin% colnames(base)) {
-    dado <- base 
+  # calculando variável idade ativa caso ela não exista ---------------------------
+  
+  if ("aux_idade_ativa" %in% colnames(dado)) {
+    dado <- dado 
   } else {
-    source("Script/AUXILIARES/auxiliar_idade.R", encoding = "UTF-8")
-    dado <- auxiliar_idade(base)
+    source("Script/AUXILIARES/auxiliar_idade_ativa.R", encoding = "UTF-8")
+    dado <- auxiliar_idade_ativa(dado)
   }
   
-  dado[, marca_idade_ativa := fifelse(aux_idade >= 15, 1, 0)]
   
-  dado <- dado[, .(total_fam_cm_IA = sum(marca_idade_ativa)), 
+  # calculando o total de pessoas com idade ativa na família ----------------
+
+  dado <- dado[, .(total_pess_com_idade_ativa = sum(aux_idade_ativa)), 
                by = c("d.cod_familiar_fam")]
   
-  dado[, d3_c1_i1 := fifelse(total_fam_cm_IA > 0, 1, 0)]
+
+  # calculando indicador de presença de pelos menos um membro em ida --------
+  
+  dado[, d3_c1_i1 := fifelse(total_pess_com_idade_ativa > 0, 1, 0)]
+  
+  
+
+  # saida -------------------------------------------------------------------
   
   saida <- dado[, .(d.cod_familiar_fam, 
                     d3_c1_i1)]

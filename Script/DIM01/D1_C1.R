@@ -9,6 +9,7 @@ D1_C1 <- function(base){
   
   # chamando os indicadores -------------------------------------------------
   require(data.table)
+  dado <- base
   
   # função indicadora 1.1.1
   source("Script/DIM01/D1_C1_indicadora1.R",
@@ -20,21 +21,22 @@ D1_C1 <- function(base){
   source("Script/DIM01/D1_C1_indicadora3.R",
          encoding = "UTF-8")
   
-  if (("aux_idade" %in% colnames(base)) == TRUE) {
-    base <- base
+  if (("aux_idade" %in% colnames(dado)) == TRUE) {
+    dado <- dado
   } else {
     source("Script/AUXILIARES/auxiliar_idade.R") # auxiliar idade
-    base <- auxiliar_idade(base)
+    dado <- auxiliar_idade(dado)
   }
   
-  dado1 <- D1_C1_I1(base) # indicador 1.1.1
-  dado2 <- D1_C1_I2(base) # indicador 1.1.2
-  dado3 <- D1_C1_I3(base) # indicador 1.1.3
+  dado1 <- D1_C1_I1(dado) # indicador 1.1.1
+  dado2 <- D1_C1_I2(dado) # indicador 1.1.2
+  dado3 <- D1_C1_I3(dado) # indicador 1.1.3
   
 
   # juntando os indicadores -------------------------------------------------
-  dado <- dado1[dado2, on=c("d.cod_familiar_fam")
-                ][dado3, on=c("d.cod_familiar_fam")]
+  dado <- 
+    dado1[dado2, on=c("d.cod_familiar_fam")][
+      dado3, on=c("d.cod_familiar_fam")]
 
     
   # calculando o componente -------------------------------------------------

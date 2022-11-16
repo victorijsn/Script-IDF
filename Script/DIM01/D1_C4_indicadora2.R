@@ -9,23 +9,28 @@
 
 D1_C4_I2 <- function(base){
   
-  # calculando as idades ----------------------------------------------------
   require(data.table)
-  if (("aux_idade" %in% colnames(base)) == TRUE) {
-    dado <- base
+  dado <- base
+  
+  # calculando as idades ----------------------------------------------------
+
+  if (("aux_idade" %in% colnames(dado)) == TRUE) {
+    dado <- dado
   } else {
     source("Script/AUXILIARES/auxiliar_idade.R") # auxiliar idade
-    dado <- auxiliar_idade(base)
+    dado <- auxiliar_idade(dado)
   }
   
   
   # marca pessoa 18 anos ou mais --------------------------------------------
+  
   dado[, marca_idade_18 := fifelse(aux_idade >= 18, 1, 
                                    fifelse(is.na(aux_idade), NA_real_, 0))]
   
   
   
   # calculando indicador familiar -------------------------------------------
+  
   dado <- dado[, .(total_pessoas_18 = 
                      sum(marca_idade_18, na.rm = TRUE)),
                by = c("d.cod_familiar_fam")]
@@ -38,7 +43,9 @@ D1_C4_I2 <- function(base){
   
   
   # saida -------------------------------------------------------------------
+  
   saida <- dado[, .(d.cod_familiar_fam,
                     d1_c4_i2)]
+  
   return(saida)
 }

@@ -7,9 +7,10 @@
 
 
 D1_C4 <- function(base){
-  
+    
   # chamando os indicadores -------------------------------------------------
   require(data.table)
+  dado <- base
   
   # função indicadora 1.4.1
   source("Script/DIM01/D1_C4_indicadora1.R",
@@ -21,14 +22,15 @@ D1_C4 <- function(base){
   source("Script/DIM01/D1_C4_indicadora3.R",
          encoding = "UTF-8")
   
-  dado1 <- D1_C4_I1(base) # indicador 1.4.1
-  dado2 <- D1_C4_I2(base) # indicador 1.4.2
-  dado3 <- D1_C4_I3(base) # indicador 1.4.3
+  dado1 <- D1_C4_I1(dado) # indicador 1.4.1
+  dado2 <- D1_C4_I2(dado) # indicador 1.4.2
+  dado3 <- D1_C4_I3(dado) # indicador 1.4.3
   
   
   # juntando os indicadores -------------------------------------------------
-  dado <- dado1[dado2, on=c("d.cod_familiar_fam")
-  ][dado3, on=c("d.cod_familiar_fam")]
+  dado <- 
+    dado1[dado2, on=c("d.cod_familiar_fam")][
+      dado3, on=c("d.cod_familiar_fam")]
   
   
   # calculando o componente -------------------------------------------------

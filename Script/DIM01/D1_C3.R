@@ -8,13 +8,16 @@
 
 D1_C3 <- function(base) {
   
+  require(data.table)
+  dado <- base
+  
   # função indicadora 1.3.1
   source("Script/DIM01/D1_C3_indicadora1.R", encoding = "UTF-8")
   # função indicadora 1.3.2
   source("Script/DIM01/D1_C3_indicadora2.R", encoding = "UTF-8")
   
-  dado1 <- D1_C3_I1(base)
-  dado2 <- D1_C3_I2(base)
+  dado1 <- D1_C3_I1(dado)
+  dado2 <- D1_C3_I2(dado)
   
   # juntando as bases -------------------------------------------------------
   dado <- dado1[dado2, on = c("d.cod_familiar_fam")]

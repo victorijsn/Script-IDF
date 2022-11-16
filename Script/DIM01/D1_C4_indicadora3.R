@@ -8,13 +8,16 @@
 
 D1_C4_I3 <- function(base){
   
-  # calculando as idades ----------------------------------------------------
   require(data.table)
-  if (("aux_idade" %in% colnames(base)) == TRUE) {
-    dado <- base
+  dado <- base
+  
+  # calculando as idades ----------------------------------------------------
+
+  if (("aux_idade" %in% colnames(dado)) == TRUE) {
+    dado <- dado
   } else {
     source("Script/AUXILIARES/auxiliar_idade.R") # auxiliar idade
-    dado <- auxiliar_idade(base)
+    dado <- auxiliar_idade(dado)
   }
   
   
