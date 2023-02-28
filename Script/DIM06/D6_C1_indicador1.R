@@ -6,6 +6,8 @@
 # Componente: 6.1. Propriedade do domicílio 
 # Indicador: 6.1.1. Domicílio particular ou coletivo
 
+# comentário teste
+
 D6_C1_I1 <- function(base){
   
   # selecionando as colunas que serão utilizadas ----------------------------------------------------
