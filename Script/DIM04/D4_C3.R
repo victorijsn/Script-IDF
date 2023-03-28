@@ -5,7 +5,7 @@
 # Dimensão: 4. Disponibilidade de Recursos
 # Componente: 4.3. Pobreza
 
-D4_C3 <- function(base, linha_pobreza) {
+D4_C3 <- function(base, linha_pobreza, ano_inicial, data_referencia) {
   # Chamando os indicadores --------------------------------------------------------------------------
   
   require(data.table)
@@ -18,23 +18,35 @@ D4_C3 <- function(base, linha_pobreza) {
   source("Script/DIM04/D4_C3_indicador2.R",
          encoding = "UTF-8")
 
-  # Verificando se as colunas já foram calculadas ----------------------------------------------------
   
-  if (("despesa_total" %in% colnames(dado)) == TRUE) {
+  # Verificando se as colunas já foram calculadas ----------------------------------------------------
+
+  if (("despesa_total"  %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
-    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
-    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
-    inpc <- auxiliar_inpc()
-    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+
+    if (!"deflatores" %in% ls()) {
+
+      if (!"inpc" %in% ls()) {
+        #auxiliar inpc
+        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8")
+        inpc <- auxiliar_inpc()
+      }
+
+      #auxiliar deflatores
+      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8")
+      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+    }
+
+    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
     dado <- auxiliar_valores(base, deflatores)
   }
   
+  
   # Calculando os indicadores ------------------------------------------------------------------------
   
-  dado1 <- D4_C3_I1(dado, linha_extrema_pobreza); setkey(dado1, d.cod_familiar_fam) # indicador 4.3.1
-  dado2 <- D4_C3_I2(dado, linha_extrema_pobreza); setkey(dado2, d.cod_familiar_fam) # indicador 4.3.2
+  dado1 <- D4_C3_I1(dado, linha_pobreza, ano_inicial, data_referencia); setkey(dado1, d.cod_familiar_fam) # indicador 4.3.1
+  dado2 <- D4_C3_I2(dado, linha_pobreza, ano_inicial, data_referencia); setkey(dado2, d.cod_familiar_fam) # indicador 4.3.2
 
   lista_indicadores <- list(dado1, dado2)
   

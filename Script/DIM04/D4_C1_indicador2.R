@@ -7,7 +7,7 @@
 # Indicador: 4.1.2. Família possui alguma renda, excluindo-se as transferências
 
 
-D4_C1_I2 <- function(base){
+D4_C1_I2 <- function(base, ano_inicial, data_referencia){
   
   require(data.table)
   dado <- base
@@ -17,16 +17,25 @@ D4_C1_I2 <- function(base){
   if (("renda_sem_tranferencia" %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
-    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
-    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
-    inpc <- auxiliar_inpc()
-    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+     
+    if (!"deflatores" %in% ls()) {
+      
+      if (!"inpc" %in% ls()) {
+        #auxiliar inpc
+        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8") 
+        inpc <- auxiliar_inpc()
+      }
+      
+      #auxiliar deflatores
+      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8") 
+      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+    }
+    
+    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
     dado <- auxiliar_valores(base, deflatores)
   }
   
   # Selecionando as colunas que serão utilizadas -----------------------------------------------------
-  
   dado <- dado[,.(d.cod_familiar_fam, despesa_total, renda_sem_tranferencia)]
   
   # Agrupando por código familiar --------------------------------------------------------------------
