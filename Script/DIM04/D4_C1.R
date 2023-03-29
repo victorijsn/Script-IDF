@@ -5,7 +5,7 @@
 # Dimensão: 4. Disponibilidade de Recursos
 # Componente: 4.1. Existência de Renda e Despesas
 
-D4_C1 <- function(base) {
+D4_C1 <- function(base, ano_inicial, data_referencia) {
   # Chamando os indicadores --------------------------------------------------------------------------
   
   require(data.table)
@@ -23,22 +23,32 @@ D4_C1 <- function(base) {
   
   # Verificando se as colunas já foram calculadas ----------------------------------------------------
   
-  if (("despesa_total" %in% colnames(dado)) == TRUE) {
+  if (("despesa_total"  %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
-    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
-    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
-    inpc <- auxiliar_inpc()
-    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+
+    if (!"deflatores" %in% ls()) {
+
+      if (!"inpc" %in% ls()) {
+        #auxiliar inpc
+        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8")
+        inpc <- auxiliar_inpc()
+      }
+
+      #auxiliar deflatores
+      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8")
+      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+    }
+    
+    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
     dado <- auxiliar_valores(base, deflatores)
   }
   
   # Calculando os indicadores ------------------------------------------------------------------------
   
-  dado1 <- D4_C1_I1(dado); setkey(dado1, d.cod_familiar_fam) # indicador 4.1.1
-  dado2 <- D4_C1_I2(dado); setkey(dado2, d.cod_familiar_fam) # indicador 4.1.2
-  dado3 <- D4_C1_I3(dado); setkey(dado3, d.cod_familiar_fam) # indicador 4.1.3
+  dado1 <- D4_C1_I1(dado, ano_inicial, data_referencia); setkey(dado1, d.cod_familiar_fam) # indicador 4.1.1
+  dado2 <- D4_C1_I2(dado, ano_inicial, data_referencia); setkey(dado2, d.cod_familiar_fam) # indicador 4.1.2
+  dado3 <- D4_C1_I3(dado, ano_inicial, data_referencia); setkey(dado3, d.cod_familiar_fam) # indicador 4.1.3
   
   lista_indicadores <- list(dado1, dado2, dado3)
   
