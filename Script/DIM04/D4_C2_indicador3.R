@@ -7,39 +7,27 @@
 # Indicador: 4.2.3. Despesa com alimentos, higiene e limpeza superior a linha de extrema pobreza
 
 
-D4_C2_I3 <- function(base, linha_extrema_pobreza, ano_inicial, data_referencia){
+D4_C2_I3 <- function(base, linha_extrema_pobreza){
   
   require(data.table)
   dado <- base
   
   # Verificando se as colunas já foram calculadas ----------------------------------------------------
-
+  
   if (("despesa_alimentacao" %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-
-    if (!"deflatores" %in% ls()) {
-
-      if (!"inpc" %in% ls()) {
-        #auxiliar inpc
-        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8")
-        inpc <- auxiliar_inpc()
-      }
-
-      #auxiliar deflatores
-      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8")
-      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
-    }
-
-    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
-    dado <- auxiliar_valores(dado, deflatores)
+    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
+    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
+    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
+    inpc <- auxiliar_inpc()
+    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
+    dado <- auxiliar_valores(base, deflatores)
   }
-
+  
   # Selecionando as colunas que serão utilizadas -----------------------------------------------------
   
-  dado <- dado[,.(d.cod_familiar_fam, 
-                  despesa_alimentacao, 
-                  d.qtd_pessoas_domic_fam)]
+  dado <- dado[,.(d.cod_familiar_fam, despesa_alimentacao, d.qtd_pessoas_domic_fam)]
   
   # OBS IMPORTANTE - No texto não é mencionado a despesa com alimentação percapita, porém o cálculo é
   # por membro da família seguindo o que foi feito nos Scripts anteriores.

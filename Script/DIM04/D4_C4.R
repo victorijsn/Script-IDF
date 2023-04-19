@@ -5,7 +5,7 @@
 # Dimensão: 4. Disponibilidade de Recursos
 # Componente: 4.4. Capacidade de Geração de Renda
 
-D4_C4 <- function(base, ano_inicial, data_referencia) {
+D4_C4 <- function(base) {
   # Chamando os indicadores --------------------------------------------------------------------------
   
   require(data.table)
@@ -17,30 +17,20 @@ D4_C4 <- function(base, ano_inicial, data_referencia) {
 
   # Verificando se as colunas já foram calculadas ----------------------------------------------------
   
-  if (("despesa_total"  %in% colnames(dado)) == TRUE) {
+  if (("renda_tranferencia" %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    
-    if (!"deflatores" %in% ls()) {
-      
-      if (!"inpc" %in% ls()) {
-        #auxiliar inpc
-        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8") 
-        inpc <- auxiliar_inpc()
-      }
-      
-      #auxiliar deflatores
-      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8") 
-      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
-    }
-    
-    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
+    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
+    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
+    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
+    inpc <- auxiliar_inpc()
+    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
     dado <- auxiliar_valores(base, deflatores)
   }
   
   # Calculando os indicadores ------------------------------------------------------------------------
   
-  dado1 <- D4_C4_I1(dado, ano_inicial, data_referencia); setkey(dado1, d.cod_familiar_fam) # indicador 4.4.1
+  dado1 <- D4_C4_I1(dado); setkey(dado1, d.cod_familiar_fam) # indicador 4.4.1
   
   # juntando os indicadores --------------------------------------------------------------------------
   

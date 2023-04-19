@@ -4,7 +4,7 @@
 # Cálculo do Índice de Desenvolvimento Familiar
 # Dimensão: 4. Disponibilidade de Recursos
 
-D4 <- function(base, linha_extrema_pobreza, linha_pobreza, ano_inicial, data_referencia) {
+D4 <- function(base, linha_extrema_pobreza, linha_pobreza) {
   
   require(data.table)
   dado <- base
@@ -19,33 +19,23 @@ D4 <- function(base, linha_extrema_pobreza, linha_pobreza, ano_inicial, data_ref
   
   # Verificando se as colunas já foram calculadas ----------------------------------------------------
   
-  if (("despesa_total"  %in% colnames(dado)) == TRUE) {
+  if (("despesa_total" %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    
-    if (!"deflatores" %in% ls()) {
-      
-      if (!"inpc" %in% ls()) {
-        #auxiliar inpc
-        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8") 
-        inpc <- auxiliar_inpc()
-      }
-      
-      #auxiliar deflatores
-      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8") 
-      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
-    }
-    
-    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
+    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
+    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
+    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
+    inpc <- auxiliar_inpc()
+    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
     dado <- auxiliar_valores(base, deflatores)
   }
   
   # Calculando os componentes e definindo chave primária ---------------------------------------------
   
-  dado1 <- D4_C1(dado, ano_inicial, data_referencia); setkey(dado1, d.cod_familiar_fam)
-  dado2 <- D4_C2(dado, linha_extrema_pobreza, ano_inicial, data_referencia); setkey(dado2, d.cod_familiar_fam)
-  dado3 <- D4_C3(dado, linha_pobreza, ano_inicial, data_referencia); setkey(dado3, d.cod_familiar_fam)
-  dado4 <- D4_C4(dado, ano_inicial, data_referencia); setkey(dado4, d.cod_familiar_fam)
+  dado1 <- D4_C1(dado); setkey(dado1, d.cod_familiar_fam)
+  dado2 <- D4_C2(dado, linha_extrema_pobreza); setkey(dado2, d.cod_familiar_fam)
+  dado3 <- D4_C3(dado, linha_pobreza); setkey(dado3, d.cod_familiar_fam)
+  dado4 <- D4_C4(dado); setkey(dado4, d.cod_familiar_fam)
   
   lista_componentes <- list(dado1,
                             dado2,

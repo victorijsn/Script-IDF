@@ -6,7 +6,7 @@
 # Componente: 4.3. Pobreza
 # Indicador: 4.3.1. Despesa familiar per capita superior a linha da pobreza
 
-D4_C3_I1 <- function(base, linha_pobreza, ano_inicial, data_referencia){
+D4_C3_I1 <- function(base, linha_pobreza){
   
   require(data.table)
   dado <- base
@@ -16,21 +16,11 @@ D4_C3_I1 <- function(base, linha_pobreza, ano_inicial, data_referencia){
   if (("despesa_total" %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    
-    if (!"deflatores" %in% ls()) {
-      
-      if (!"inpc" %in% ls()) {
-        #auxiliar inpc
-        source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8") 
-        inpc <- auxiliar_inpc()
-      }
-      
-      #auxiliar deflatores
-      source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8") 
-      deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
-    }
-    
-    source("Script/AUXILIARES/auxiliar_valores.R",  encoding = "UTF-8") #auxiliar valores
+    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
+    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
+    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
+    inpc <- auxiliar_inpc()
+    deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
     dado <- auxiliar_valores(base, deflatores)
   }
   
