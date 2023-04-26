@@ -86,5 +86,3 @@ D2_C1 <- function(base){
   
   return(saida)
 }
-
-validacao <- D2_C1(base)
