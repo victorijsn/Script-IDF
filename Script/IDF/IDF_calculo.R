@@ -8,29 +8,29 @@ IDF <- function(base,
   # chamando as funções das 6 dimensões -------------------------------------
   
   source("Script/DIM01/DIM01.R")
-  # source("Script/DIM02/DIM02.R")
+  source("Script/DIM02/DIM02.R")
   source("Script/DIM03/DIM03.R")
-  # source("Script/DIM04/DIM04.R")
+  source("Script/DIM04/DIM04.R")
   # source("Script/DIM05/DIM05.R")
-  # source("Script/DIM06/DIM06.R")
+  source("Script/DIM06/DIM06.R")
   
 
 
   # calculando cada dimensão ------------------------------------------------
 
   dimensao1 <- D1(base) 
-  # dimensao2 <- D2(base) 
+  dimensao2 <- D2(base) 
   dimensao3 <- D3(base, salario_minimo)
-  # dimensao4 <- D4(base) 
+  dimensao4 <- D4(base) 
   # dimensao5 <- D5(base) 
-  # dimensao6 <- D6(base) 
+  dimensao6 <- D6(base) 
   
   lista_dimensoes <- list(dimensao1,
-                          # dimensao2,
+                          dimensao2,
                           dimensao3
-                          # dimensao4,
+                          dimensao4,
                           # dimensao5,
-                          # dimensao6
+                          dimensao6
                           )
   
   # concatenando as 6 dimensões ---------------------------------------------
@@ -45,11 +45,11 @@ IDF <- function(base,
   # calculando o IDF --------------------------------------------------------
   
   dado[, idf := rowMeans(as.data.table(.(d1,
-                                         # d2,
+                                         d2,
                                          d3
-                                         # d4,
+                                         d4,
                                          # d5,
-                                         # d6
+                                         d6
                                          )))]
 
   # saída -------------------------------------------------------------------
