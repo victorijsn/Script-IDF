@@ -12,7 +12,7 @@ auxiliar_idade <- function(base){
   
   dado <- base
   
-  dado[, p.dta_nasc_pessoa := format(p.dta_nasc_pessoa, "%Y-%m-%d")]
+  dado[, p.dta_nasc_pessoa := as.Date(p.dta_nasc_pessoa, "%Y-%m-%d")] #mudei para tirar o erro invalid 'trim' argument
 
 
   # calculando a idade em anos e em dias ------------------------------------
