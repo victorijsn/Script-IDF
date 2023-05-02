@@ -11,7 +11,7 @@ IDF <- function(base,
   source("Script/DIM02/DIM02.R")
   source("Script/DIM03/DIM03.R")
   source("Script/DIM04/DIM04.R")
-  # source("Script/DIM05/DIM05.R")
+  source("Script/DIM05/DIM05.R")
   source("Script/DIM06/DIM06.R")
   
 
@@ -22,14 +22,14 @@ IDF <- function(base,
   dimensao2 <- D2(base) 
   dimensao3 <- D3(base, salario_minimo)
   dimensao4 <- D4(base) 
-  # dimensao5 <- D5(base) 
+  dimensao5 <- D5(base)
   dimensao6 <- D6(base) 
   
   lista_dimensoes <- list(dimensao1,
                           dimensao2,
-                          dimensao3
+                          dimensao3,
                           dimensao4,
-                          # dimensao5,
+                          dimensao5,
                           dimensao6
                           )
   
@@ -46,9 +46,9 @@ IDF <- function(base,
   
   dado[, idf := rowMeans(as.data.table(.(d1,
                                          d2,
-                                         d3
+                                         d3,
                                          d4,
-                                         # d5,
+                                         d5,
                                          d6
                                          )))]
 
