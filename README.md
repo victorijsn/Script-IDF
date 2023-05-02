@@ -1,4 +1,6 @@
-# Introdução 
+# Metodologia de cálculo do Índice de Desenvolvimento das Família (IDF)
+
+## Introdução
 
 Interpretar adequadamente a realidade é essencial no processo de análise para tomadas de decisões. No entanto, dependendo da complexidade do cenário a ser observado, atingir esse objetivo se torna um trabalho árduo, uma vez que a temática e o volume dos dados interfere na maneira de obter ferramentas estratégicas e/ou operacionais.
 
@@ -17,9 +19,7 @@ Entretanto, conseguir esses indicadores para aplicá-los demanda um esforço ope
 
 Considerando os pontos abordados, o propósito deste documento é apresentar a estrutura de uma rotina de cálculo para adquirir o Índice de Desenvolvimento Familiar (IDF). Sendo esta, uma das alternativas para avaliar o quão desenvolvida uma família está no contexto social em que vive. A discussão sobre esse índice será melhor desenvolvida adiante.
 
-# Índice de Desenvolvimento Social 
-
-## O que é, para que serve e suas vantagens
+## O que é, para que serve e as vantagens do IDF
 
 O IDF é um indicador sintético que busca medir o nível de desenvolvimento social que uma família possui em relação a diversas necessidades básicas como, por exemplo, conhecimento, trabalho e situação habitacional. Seu valor varia de 0 a 1 e quanto mais próximo de 0 mais vulnerável a família é. 
 
@@ -33,9 +33,7 @@ Levando em consideração essas características, o IDF demonstrou ser vantajoso
 
 Os dados utilizados para obter o IDF são registrados no Cadastro Único para Programas Federais. O indicador é calculado por uma série de etapas que envolvem esse banco de dados, mas para conseguir realizar os cálculos é fundamental compreender antes como o índice é estruturado. 
 
-\pagebreak
-
-## Estrutura do IDF
+### Estrutura do IDF
 
 O índice pretende contemplar as principais dimensões que impactam direta ou indiretamente no desenvolvimento social familiar. São elas:
 
@@ -51,16 +49,11 @@ O índice pretende contemplar as principais dimensões que impactam direta ou in
 
 - **Condição habitacional** verifica a situação do ambiente em que a família vive, a estrutura física como a disponibilidade de água, luz, saneamento básico. Também há a análise da quantidade de pessoas que são abrigadas dentro da residência.
 
-Além das dimensões, o IDF possui componentes e indicadores na sua estrutura, elas irão definir melhor cada dimensão. As dimensões, componentes e indicadores são arranjadas de forma hierárquica, como mostrado na figura abaixo:
-
-\pagebreak 
-
-  ![Exemplificação da estruturação do Índice de Desenvolvimento Familiar](diagrama_modelo2.png)
-
+Além das dimensões, o IDF possui componentes e indicadores na sua estrutura, elas irão definir melhor cada dimensão. As dimensões, componentes e indicadores são arranjadas de forma hierárquica.
 
 A quantidade de indicadores e componentes irão variar de acordo com a sua dimensão. Além disso, o IDF não atribui pesos aos itens que o compõem. Isto é, a condição habitacional de uma família tem o mesmo impacto que a sua disponibilidade de renda, mesmo com a quantidade de componentes e indicadores sendo diferentes para essas dimensões.
 
-Os indicadores são a unidade mínima para conseguir quantificar o IDF. Isso ocorre devido ao fato de atribuirmos um número de acordo com as características do grupo a ser analisado. Tal valor dependerá se o grupo atenda ou não uma condição. Nesta nota técnica, as condições foram seguidas de acordo com metodologia disponibilizada no Perfil da Pobreza do Espírito Santo, publicada pelo Instituto João Santos Neves^[Confira todas as condições no anexo do Perfil da Pobreza no Espírito Santo. Disponível em: [http://ijsn.es.gov.br/artigos/6074-perfil-da-pobreza-no-espirito-santo-familias-inscritas-no-cadunico-2021](http://ijsn.es.gov.br/artigos/6074-perfil-da-pobreza-no-espirito-santo-familias-inscritas-no-cadunico-2021)](IJSN). 
+Os indicadores são a unidade mínima para conseguir quantificar o IDF. Isso ocorre devido ao fato de atribuirmos um número de acordo com as características do grupo a ser analisado. Tal valor dependerá se o grupo atenda ou não uma condição. Nesta nota técnica, as condições foram seguidas de acordo com metodologia disponibilizada no Perfil da Pobreza do Espírito Santo, publicada pelo Instituto João Santos Neves. Confira todas as condições no anexo do Perfil da Pobreza no Espírito Santo. Disponível em: [http://ijsn.es.gov.br/artigos/6074-perfil-da-pobreza-no-espirito-santo-familias-inscritas-no-cadunico-2021](http://ijsn.es.gov.br/artigos/6074-perfil-da-pobreza-no-espirito-santo-familias-inscritas-no-cadunico-2021)(IJSN). 
 
 De modo geral, caso a condição seja verdadeira, o grupo receberá a nota **um**, caso contrário receberá **zero**. Para ilustrar, imagine uma família que não possui crianças entre zero a seis anos. Esta família terá o valor um atribuído no indicador que contabiliza a ausência de crianças nessa faixa etária pelo fato de não ser afetada por esse tipo de vulnerabilidade.
 
@@ -68,15 +61,11 @@ Este primeiro momento é crucial para o processo de cálculo do IDF, pois é nel
 
 O cálculo do IDF, das dimensões e dos componentes se dá pela média aritmética das unidades que estão abaixo de si. Por exemplo, os componentes possuem seu valor definido pelos indicadores. Portanto seu cálculo se dá pela soma dos valores de seus indicadores divido pela quantidade de indicadores existentes para aquele componente. O mesmo ocorre para o IDF e para as dimensões. 
 
-Ao todo, o IDF possui 6 dimensões, 27 componentes e 65 indicadores. A relação entre eles pode ser apresentada da seguinte maneira:
-
-  ![Diagrama de Árvore do Índice de Desenvolvimento Familiar (IDF)](diagrama.png)
-
-\pagebreak
+Ao todo, o IDF possui 6 dimensões, 27 componentes e 65 indicadores. 
 
 A complexidade do IDF se dá principalmente pelo alto número de variáveis de cálculo que o compõem. Dessa forma, uma solução seria desenvolver uma rotina de cálculo para evitar erros manuais e obter o IDF de forma consistente.
   
-# Rotina de cálculo para o IDF
+## Rotina de cálculo para o IDF
 
 Uma rotina de cálculo tem como objetivo desenvolver um conjunto de ações para executar e obter algum objeto, como um arquivo, tabela ou documento. Em geral, sua elaboração utiliza ferramentas tecnológicas para estabelecer e executar as regras de cálculo necessárias para encontrar esses valores. Sendo amplamente utilizados para otimizar a precisão e a agilidade no processo de trabalho.
 
@@ -88,11 +77,11 @@ Além disso, o R é um software livre e possui uma comunidade brasileira bastant
 
 Depois da escolha do programa, a lógica para estruturar a rotina começa estabelecendo os dados de entrada, que irão sofrer uma sequência de manipulações para gerar o IDF. Portanto, deve-se definir bem os dados iniciais.
 
-## Dados de entrada e de saída
+### Dados de entrada e de saída
 
 Para gerar o índice, foram criadas funções para os indicadores, componentes, dimensões, variáveis auxiliares e o próprio IDF. Cada função dependerá de argumentos que são fundamentais para executar os cálculos necessários para obter os valores desejados. Esses argumentos serão utilizados nas regras de cálculo de cada elemento e por isso devem ser definidos antes do cálculo.
 
-### Cadastro Único
+#### Cadastro Único
 
 A primeira seleção que deve ser feita é em relação às informações do público alvo. Isto é, coletar os dados das pessoas cujo objetivo é ter seu desempenho social mensurado.
 
@@ -103,7 +92,7 @@ Um exemplo é, se quisermos gerar o IDF para as famílias que residem no Espíri
 
 Uma característica do Cadastro Único é o fato de possuir o código familiar, sendo usado como número de identificação. Este valor servirá como chave-primária para o processo de análise e manipulação dos dados. No final de todo o processo da geração do IDF, cada família receberá um único valor. Outro ponto é o fato de que cada família possui seu representante, sendo este o encarregado de prestar as informações de toda a família. 
 
-### Parâmetros da função
+#### Parâmetros da função
 
 Para se calcular o IDF utiliza-se alguns parâmetros que podem variar de acordo com a necessidade do gestor ou com
 o tempo. Dado que estes valores interferem nas classificações das famílias, optou-se por colocá-los como argumentos da
@@ -117,13 +106,13 @@ função, de modo que seja facilmente alterado pelo pesquisador. São eles:
  
 Leva-se em consideração que estes parâmetros devem estar alinhados de acordo com a data de referência (período em que os dados foram coletados ou disponibilizados) da base de dados. Já que elas fornecem um panorama de como o sujeito está em relação à sociedade naquele período. Fornecendo uma comparação entre como o indivíduo está no ambiente em que convive. 
 
-### Variáveis Auxiliares
+#### Variáveis Auxiliares
 
 Há algumas variáveis que não estão no cadastro único, mas que podem ser obtidas por meio de cálculos derivados das informações que nele existem, podendo precisar se relacionar ou não com valores externos. Um exemplo disso é a necessidade de calcular a idade de cada indivíduo. Para isso, temos a data de nascimento relacionada com a data de referência da base coletada. A partir desses dois valores consegue-se, portanto, achar a idade de cada pessoa cadastrada.
 
 Essas e outras funções são chamadas de variáveis auxiliares e é interessante criar uma etapa de cálculo individual para cada uma. Tanto por conta da sua necessidade de ser utilizada inúmeras vezes durante o processo de execução da rotina, quanto pelo fato do seu cálculo ser tão complexo que o ideal seria separá-la da rotina principal.
 
-### INPC e valores de renda deflacionados
+#### INPC e valores de renda deflacionados
 
 No banco de dados do Cadastro Único há o armazenamento de dados sobre a renda de cada indivíduo. No entanto, dependendo da data de coleta dessas informações, as interpretações dos valores podem sofrer distorções devido à inflação que ocorre ao longo dos meses. Já que R\$100,00 há 2 anos não representa igualmente o valor de R\$100,00 nos dias atuais.
 
@@ -210,11 +199,6 @@ nomes_coluna2 <- c("Objeto",
 tabela1 <- cbind(objetos, sigla_num, codigo, intervalo, quantidade_total)
 tabela2 <- cbind(objetos, arquivo,funcao, coluna, pasta)
 ```
-
-```{r echo=FALSE}
-knitr::kable(x = tabela1,  "pipe", col.names = nomes_coluna1, align = c('l', 'c','l', 'l', 'l'), caption = "Sistematização da enumeração dos objetos da Rotina de Cálculo do IDF")
-```
-
 O objetivo desse sistema é enumerar os principais elementos do IDF: dimensões, componentes e indicadores. Essa enumeração informará de qual ramificação o elemento faz parte. Isso porque vimos no tópico de estruturação que o IDF é constituído de forma hierárquica. 
 Esse sistema será aplicado tanto nas funcionalidades quanto no nome dos arquivos criados para o armazenamento das funções. Também será aplicado para definir as colunas que serão geradas. 
 
@@ -246,10 +230,6 @@ Exemplos:
 
 
 Com a enumeração especificada, vamos padronizar a nomenclatura dos termos que serão criados, chamados e calculados durante toda a rotina. O objetivo de padronizar os termos é de deixar o acesso, a compreensão e a criação dos arquivos o mais intuitivo possível. 
-
-```{r echo=FALSE}
-knitr::kable(x = tabela2,  "pipe", col.names = nomes_coluna2, align = c('l','l','l','l', 'l'), caption = "Sintaxes dos termos padronizados da Rotina de Cálculo do IDF")
-```
 
 1. **Arquivo**
 
@@ -412,8 +392,6 @@ Podemos perceber que este é uma funcionalidade que gerará um indicador que rep
 
 Esse indicador necessita da variável auxiliar para calcular idade para ser obtido, devido ao fato de verificar se a família possui ou não crianças de 0 a 6 anos de idade e a base do Cadastro Único não coleta a idade dos indivíduos, mas sim a sua data de nascimento.
 
-\pagebreak 
-
 # Considerações Finais 
  
 A importância da nota técnica se dá pela preservação do conhecimento produzido e da lógica utilizada para a elaboração da rotina de cálculo. Oferecendo uma base para as pessoas que vierem fazer parte desse trabalho no futuro. Auxiliando, desse modo, em dar continuidade ao trabalho e possibilitar a sugestão de alterações para otimizar os meios de obter o IDF.
@@ -422,8 +400,6 @@ Além disso, a nota também orienta aqueles que desejam reproduzir estudos e an�
 
 A rotina de cálculo tenta atender a demanda de conseguir, de maneira ágil, periódica e consistente, os valores do IDF. A estrutura da rotina que foi elaborada também torna possível um estudo mais aprofundado desse índice, já que
 possibilita análises das dimensões, componentes e indicadores, além do próprio índice. Com as informações obtidas, consegue-se ter uma noção do quão desenvolvido um grupo social está. Possibilitando análises comparativas temporais ou regionais e de diferentes grupos sociais.
-
-\pagebreak 
 
 # Referências 
 
