@@ -64,7 +64,7 @@ D5_C2 <- function(base){
   
   # calculando o componente -------------------------------------------------
   
-  dado[, d5_c1 := rowMeans(as.data.table(.(d5_c2_i1,
+  dado[, d5_c2 := rowMeans(as.data.table(.(d5_c2_i1,
                                            d5_c2_i2, 
                                            d5_c2_i3)), 
                            na.rm = TRUE )]

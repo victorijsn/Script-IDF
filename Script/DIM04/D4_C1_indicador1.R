@@ -16,9 +16,9 @@ D4_C1_I1 <- function(base){
   if (("despesa_total" %in% colnames(dado)) == TRUE) {
     dado <- dado
   } else {
-    source("Script/AUXILIARES/auxiliar_inpc.R") #auxiliar inpc
-    source("Script/AUXILIARES/auxiliar_deflatores.R") #auxiliar deflatores
-    source("Script/AUXILIARES/auxiliar_valores.R") #auxiliar valores
+    source("Script/AUXILIARES/auxiliar_inpc.R", encoding = "UTF-8") #auxiliar inpc
+    source("Script/AUXILIARES/auxiliar_deflatores.R", encoding = "UTF-8") #auxiliar deflatores
+    source("Script/AUXILIARES/auxiliar_valores.R", encoding = "UTF-8") #auxiliar valores
     inpc <- auxiliar_inpc()
     deflatores <- auxiliar_deflatores(ano_inicial, data_referencia, inpc)
     dado <- auxiliar_valores(base, deflatores)

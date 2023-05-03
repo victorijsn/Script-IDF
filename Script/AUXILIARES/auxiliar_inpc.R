@@ -20,32 +20,15 @@ auxiliar_inpc <- function(){
   colnames(base_Tratada) <- base_Tratada[1,]
   base_Tratada <- base_Tratada[-c(1,2),]
   
-  base_Tratada <- data.table::as.data.table(base_Tratada)
-  base_Tratada <- base_Tratada[, c("Valor", "Mês")]
-  data.table::setnames(base_Tratada, c("Valor","Mês"), c("inpc","meses"))
+  base_Tratada <- data.table::as.data.table(base_Tratada) |> janitor::clean_names()
+  base_Tratada <- base_Tratada[, c("valor", "mes_codigo")]
+  data.table::setnames(base_Tratada, c("valor","mes_codigo"), c("inpc","meses"))
   
   # tratando as datas -------------------------------------------------------
-  colunas_mes_ano <- stringr::str_split(base_Tratada$meses,
-                                        pattern = " ",
-                                        simplify = T)
-  base_Tratada[, mes := colunas_mes_ano[,1]]
-  base_Tratada[, ano := colunas_mes_ano[,2]]
-  base_Tratada[, mes_num := data.table::fcase(
-    mes == "janeiro", 1L,
-    mes == "fevereiro", 2L,
-    mes == "março", 3L,
-    mes == "abril", 4L,
-    mes == "maio", 5L,
-    mes == "junho", 06L,
-    mes == "julho", 07L,
-    mes == "agosto", 08L,
-    mes == "setembro", 09L,
-    mes == "outubro", 10L,
-    mes == "novembro", 11L,
-    mes == "dezembro", 12L,
-    default = NA_integer_
-  )]
-  base_Tratada[, date := as.Date(paste(ano, mes_num, '01', sep = '-'))]
+  base_Tratada[, mes := stringr::str_sub(meses, start = 5)]
+  base_Tratada[, ano := stringr::str_sub(meses, end = 4)]
+  
+  base_Tratada[, date := as.Date(paste(ano, mes, '01', sep = '-'))]
   base_Tratada[, value:=as.numeric(inpc)]
   base_Tratada <- base_Tratada[, .(date,value)]
   

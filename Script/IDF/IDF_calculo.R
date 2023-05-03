@@ -1,7 +1,11 @@
 # função que irá chamar as 6 dimensões e calculará o idf
 
 IDF <- function(base, 
-                salario_minimo) {
+                salario_minimo,
+                ano_inicial,
+                data_referencia,
+                linha_extrema_pobreza,
+                linha_pobreza) {
   
   require(data.table)
   
@@ -21,7 +25,7 @@ IDF <- function(base,
   dimensao1 <- D1(base) 
   dimensao2 <- D2(base) 
   dimensao3 <- D3(base, salario_minimo)
-  dimensao4 <- D4(base) 
+  dimensao4 <- D4(base, linha_extrema_pobreza, linha_pobreza) 
   dimensao5 <- D5(base)
   dimensao6 <- D6(base) 
   

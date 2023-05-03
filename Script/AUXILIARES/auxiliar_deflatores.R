@@ -10,7 +10,7 @@
 
 # ano_inicial <- as.numeric("2020")
 # data_referencia <- as.Date("2022-01-01")
-# inpc <- auxiliar_inpc()
+inpc <- auxiliar_inpc()
 
 auxiliar_deflatores <- function(ano_inicial, data_referencia, inpc){
   # Tratando o inpc
