@@ -5,9 +5,11 @@
 # Dimensão: 3. Acesso ao Trabalho
 # Componente: 3.1. Disponibilidade de Trabalho
 
-D3_C1 <- function(base){
+D3_C1 <- function(base, com_comp=F){
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -84,8 +86,12 @@ D3_C1 <- function(base){
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d3_c1)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d3_c1)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

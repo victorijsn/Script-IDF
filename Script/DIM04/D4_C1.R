@@ -5,10 +5,13 @@
 # Dimensão: 4. Disponibilidade de Recursos
 # Componente: 4.1. Existência de Renda e Despesas
 
-D4_C1 <- function(base) {
+D4_C1 <- function(base, com_comp=F) {
   # Chamando os indicadores --------------------------------------------------------------------------
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
+  
   dado <- base
   
   # função indicadora 4.1.1
@@ -61,7 +64,12 @@ D4_C1 <- function(base) {
   
   # Saída --------------------------------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, d4_c1)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d4_c1)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

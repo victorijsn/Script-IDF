@@ -6,9 +6,11 @@
 # Componente: 1.1. Criança, adolescentes e jovens 
 
 
-D1_C2 <- function(base) {
+D1_C2 <- function(base, com_comp=F) {
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -75,8 +77,12 @@ D1_C2 <- function(base) {
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d1_c2)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d1_c2)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

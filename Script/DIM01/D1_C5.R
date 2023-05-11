@@ -6,10 +6,12 @@
 # Componente: 1.5. Convivência familiar
 
 
-D1_C5 <- function(base) {
+D1_C5 <- function(base, com_comp=F) {
   
   require(data.table)
-
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
+  
   # chamando as colunas necessárias -----------------------------------------
   
   if (("aux_idade" %in% colnames(base)) == TRUE) {
@@ -62,7 +64,12 @@ D1_C5 <- function(base) {
 
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam,
-                    d1_c5)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d1_c5)]
+  } else {
+    saida <- dado
+  }
+  
   return(saida)
 }

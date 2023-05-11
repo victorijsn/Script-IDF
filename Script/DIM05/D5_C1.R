@@ -5,9 +5,11 @@
 # Dimensão: 5. Desenvolvimento Infantil
 # Componente: 5.1. Trabalho precoce
 
-D5_C1 <- function(base){
+D5_C1 <- function(base, com_comp=F){
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -80,8 +82,12 @@ D5_C1 <- function(base){
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d5_c1)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d5_c1)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

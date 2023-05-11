@@ -5,10 +5,13 @@
 # Dimensão: 6. Condições habitacionais
 # Componente: 6.5. Acesso adequado à esgotamento sanitário
 
-D6_C5 <- function(base){
+D6_C5 <- function(base, com_comp=F){
   
   # chamando os indicadores -------------------------------------------------
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
+  
   dado <- base
   
   # função indicador 6.5.1
@@ -44,8 +47,12 @@ D6_C5 <- function(base){
   
   # saida -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d6_c5)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d6_c5)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

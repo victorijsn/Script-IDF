@@ -5,9 +5,11 @@
 # Dimensão: 5. Desenvolvimento Infantil
 # Componente: 5.2. Acesso à escola
 
-D5_C2 <- function(base){
+D5_C2 <- function(base, com_comp=F){
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -72,8 +74,12 @@ D5_C2 <- function(base){
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d5_c2)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d5_c2)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

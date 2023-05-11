@@ -5,9 +5,11 @@
 # Dimensão: 2. Acesso ao conhecimento
 # Componente: 2.2. Escolaridade
 
-D2_C2 <- function(base){
+D2_C2 <- function(base, com_comp=F){
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -67,8 +69,12 @@ D2_C2 <- function(base){
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d2_c2)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d2_c2)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

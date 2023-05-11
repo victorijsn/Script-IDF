@@ -6,9 +6,11 @@
 # Componente: 1.4. Presença de jovem ou adulto 
 
 
-D1_C4 <- function(base) {
+D1_C4 <- function(base, com_comp=F) {
     
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -66,8 +68,12 @@ D1_C4 <- function(base) {
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d1_c4)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d1_c4)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

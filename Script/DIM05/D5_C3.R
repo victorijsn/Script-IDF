@@ -5,9 +5,11 @@
 # Dimensão: 5. Desenvolvimento Infantil
 # Componente: 5.3. Progresso escolar
 
-D5_C3 <- function(base){
+D5_C3 <- function(base, com_comp=F){
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -70,8 +72,12 @@ D5_C3 <- function(base){
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d5_c3)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d5_c3)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

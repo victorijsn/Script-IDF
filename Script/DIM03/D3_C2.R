@@ -6,9 +6,11 @@
 # Componente: 3.2. Qualidadade do posto de trabalho
 
 
-D3_C2 <- function(base){
+D3_C2 <- function(base, com_comp=F){
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -61,8 +63,11 @@ D3_C2 <- function(base){
   
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d3_c2)]
-  
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d3_c2)]
+  } else {
+    saida <- dado
+  }
   return(saida)
 }

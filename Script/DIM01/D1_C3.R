@@ -6,9 +6,11 @@
 # Componente: 1.3. Dependência Econômica
 
 
-D1_C3 <- function(base) {
+D1_C3 <- function(base, com_comp=F) {
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
   
   # chamando as colunas necessárias -----------------------------------------
   
@@ -63,7 +65,11 @@ D1_C3 <- function(base) {
 
   # saida -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam,
-                    d1_c3)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d1_c3)]
+  } else {
+    saida <- dado
+  }
   return(saida)
 }

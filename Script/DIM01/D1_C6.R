@@ -6,10 +6,12 @@
 # Componente: 1.6. Migração
 
 
-D1_C6 <- function(base) {
+D1_C6 <- function(base, com_comp=F) {
   
   require(data.table)
-
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
+  
   # chamando as colunas necessárias -----------------------------------------
   
   if (("aux_idade" %in% colnames(base)) == TRUE) {
@@ -64,7 +66,12 @@ D1_C6 <- function(base) {
 
   # saída -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                  d1_c6)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d1_c6)]
+  } else {
+    saida <- dado
+  }
+  
   return(saida)
 }

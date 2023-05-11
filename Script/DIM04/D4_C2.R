@@ -5,10 +5,13 @@
 # Dimensão: 4. Disponibilidade de Recursos
 # Componente: 4.2. Extrema Pobreza
 
-D4_C2 <- function(base, linha_extrema_pobreza) {
+D4_C2 <- function(base, linha_extrema_pobreza, com_comp=F) {
   # Chamando os indicadores --------------------------------------------------------------------------
   
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
+  
   dado <- base
   
   # função indicadora 4.2.1
@@ -62,7 +65,12 @@ D4_C2 <- function(base, linha_extrema_pobreza) {
   
   # Saída --------------------------------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, d4_c2)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d4_c2)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }

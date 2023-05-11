@@ -18,8 +18,6 @@ IDF <- function(base,
   source("Script/DIM05/DIM05.R")
   source("Script/DIM06/DIM06.R")
   
-
-
   # calculando cada dimensão ------------------------------------------------
 
   dimensao1 <- D1(base) 

@@ -5,10 +5,13 @@
 # Dimensão: 6. Condições habitacionais
 # Componente: 6.6. Acesso à coleta de lixo
 
-D6_C6 <- function(base){
+D6_C6 <- function(base, com_comp=F){
   
   # chamando os indicadores -------------------------------------------------
   require(data.table)
+  
+  com_comp <- com_comp # opção para que na saída venham os indicadores
+  
   dado <- base
   
   # função indicador 6.6.1
@@ -44,8 +47,12 @@ D6_C6 <- function(base){
   
   # saida -------------------------------------------------------------------
   
-  saida <- dado[, .(d.cod_familiar_fam, 
-                    d6_c6)]
+  if (com_comp==F) {
+    saida <- dado[, .(d.cod_familiar_fam, 
+                      d6_c6)]
+  } else {
+    saida <- dado
+  }
   
   return(saida)
 }
