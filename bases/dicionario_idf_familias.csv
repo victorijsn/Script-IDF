@@ -1,102 +1,104 @@
-"";"x"
-"1";"d.cod_familiar_fam"
-"2";"total_cadastros"
-"3";"data_atualizacao"
-"4";"cod_ibge"
-"5";"d1_c1_i1"
-"6";"d1_c1_i2"
-"7";"d1_c1_i3"
-"8";"d1_c1"
-"9";"d1_c2_i1"
-"10";"d1_c2_i2"
-"11";"d1_c2_i3"
-"12";"d1_c2"
-"13";"d1_c3_i1"
-"14";"d1_c3_i2"
-"15";"d1_c3"
-"16";"d1_c4_i1"
-"17";"d1_c4_i2"
-"18";"d1_c4_i3"
-"19";"d1_c4"
-"20";"d1_c5_i1"
-"21";"d1_c5_i2"
-"22";"d1_c5"
-"23";"d1_c6_i1"
-"24";"d1_c6_i2"
-"25";"d1_c6"
-"26";"d1_c7_i1"
-"27";"d1_c7"
-"28";"d1"
-"29";"d2_c1_i1"
-"30";"d2_c1_i2"
-"31";"d2_c1_i3"
-"32";"d2_c1_i4"
-"33";"d2_c1_i5"
-"34";"d2_c1"
-"35";"d2_c2_i1"
-"36";"d2_c2_i2"
-"37";"d2_c2_i3"
-"38";"d2_c2_i4"
-"39";"d2_c2"
-"40";"d2"
-"41";"d3_c1_i1"
-"42";"d3_c1_i2"
-"43";"d3_c1"
-"44";"d3_c2_i1"
-"45";"d3_c2_i2"
-"46";"d3_c2"
-"47";"d3_c3_i1"
-"48";"d3_c3_i2"
-"49";"d3_c3"
-"50";"d3"
-"51";"d4_c1_i1"
-"52";"d4_c1_i2"
-"53";"d4_c1_i3"
-"54";"d4_c1"
-"55";"d4_c2_i1"
-"56";"d4_c2_i2"
-"57";"d4_c2_i3"
-"58";"d4_c2"
-"59";"d4_c3_i1"
-"60";"d4_c3_i2"
-"61";"d4_c3"
-"62";"d4_c4_i1"
-"63";"d4_c4"
-"64";"d4"
-"65";"d5_c1_i1"
-"66";"d5_c1_i2"
-"67";"d5_c1_i3"
-"68";"d5_c1"
-"69";"d5_c2_i1"
-"70";"d5_c2_i2"
-"71";"d5_c2_i3"
-"72";"d5_c2"
-"73";"d5_c3_i1"
-"74";"d5_c3_i2"
-"75";"d5_c3"
-"76";"d5"
-"77";"d6_c1_i1"
-"78";"d6_c1_i2"
-"79";"d6_c1_i3"
-"80";"d6_c1"
-"81";"d6_c2_i1"
-"82";"d6_c2"
-"83";"d6_c3_i1"
-"84";"d6_c3"
-"85";"d6_c4_i1"
-"86";"d6_c4_i2"
-"87";"d6_c4"
-"88";"d6_c5_i1"
-"89";"d6_c5_i2"
-"90";"d6_c5"
-"91";"d6_c6_i1"
-"92";"d6_c6_i2"
-"93";"d6_c6"
-"94";"d6_c7_i1"
-"95";"d6_c7_i2"
-"96";"d6_c7"
-"97";"d6_c8_i1"
-"98";"d6_c8_i2"
-"99";"d6_c8"
-"100";"d6"
-"101";"idf"
+cod_variavel;cod_var_old;descr1;descr2;;;;;
+d.cod_familiar_fam;d.cod_familiar_fam;Código da família no cadastro único;Código da família no cadastro único;;;;;
+total_cadastros;-;Total de cadastros vinculados à família;Total de cadastros vinculados à família;;;;;
+data_atualizacao;-;Data de atualização do cadastro da família;Data de atualização do cadastro da família;;;;;
+cod_ibge;d.cd_ibge;Código do município;Código do município;;;;;
+d1_c1_i1;v1;v1 - Ausência de crianças;1.1.1 Ausência de crianças;;;;;
+d1_c1_i2;v2;v2 - Ausência de criança ou adolescente;1.1.2 Ausência de criança ou adolescente;;;;;
+d1_c1_i3;v3;v3 - Ausência de crianca ou adolescente ou jovem;1.1.3 Ausência de crianca ou adolescente ou jovem;;;;;
+d1_c1;sub_v1;V1 - CRIANÇAS, ADOLESCENTES E JOVENS;1.1 Crianças, adolescentes e jovens;;;;;
+d1_c2_i1;v4;v4 - Ausência de deficientes e idosos;1.2.1 Ausência de deficientes e idosos;;;;;
+d1_c2_i2;v5;v5 - Ausência de idoso;1.2.2 Ausência de idoso;;;;;
+d1_c2_i3;v6;v6 -Ausência de pessoas na familia internada ou abrigada em hospital, casa de saude, asilo, orfanato ou estabelecimento similar;1.2.3 Ausência de pessoas na familia internada ou abrigada em hospital, casa de saude, asilo, orfanato ou estabelecimento similar;;;;;
+d1_c2;sub_v2;V2 - PORTADORES DE DEFICIÊNCIA E IDOSOS;1.2 Portadores de deficiência e idosos;;;;;
+d1_c3_i1;v7;v7 - Presença de cônjuge;1.3.1 Presença de cônjuge;;;;;
+d1_c3_i2;v8;v8 - Mais da metade dos membros encontra-se em idade ativa;1.3.2 Mais da metade dos membros encontra-se em idade ativa;;;;;
+d1_c3;sub_v3;V3 DEPENDÊNCIA ECONÔMICA;1.3 Dependência Econômica;;;;;
+d1_c4_i1;v9;v9 - Presença de pelo menos uma pessoa com 15 anos ou mais;1.4.1 Presença de pelo menos uma pessoa com 15 anos ou mais;;;;;
+d1_c4_i2;v10;v10 - Presença de pelo menos uma pessoa com 18 anos ou mais;1.4.2 Presença de pelo menos uma pessoa com 18 anos ou mais;;;;;
+d1_c4_i3;v11;v11 - Presença de pelo menos uma pessoa com 21 anos ou mais;1.4.3 Presença de pelo menos uma pessoa com 21 anos ou mais;;;;;
+d1_c4;sub_v4;V4 - PRESENÇA DE JOVENS OU ADULTOS;1.4 Presença de jovens ou adultos;;;;;
+d1_c5_i1;v12;v12 - Ausência de criancas com até nove anos que não são filhos ou enteado do responsavel pela unidade familiar;1.5.1 Ausência de criancas com até nove anos que não são filhos ou enteado do responsavel pela unidade familiar;;;;;
+d1_c5_i2;v13;v13 - Ausência de criancas com até nove anos que seja outro parente ou não parente;1.5.2 Ausência de criancas com até nove anos que seja outro parente ou não parente;;;;;
+d1_c5;sub_v5;V5 - CONVIVÊNCIA FAMILIAR;1.5 Convivência familiar;;;;;
+d1_c6_i1;v14;v14 - Responsável pela familia nasceu neste muncípio;1.6.1 Responsável pela familia nasceu neste muncípio;;;;;
+d1_c6_i2;v15;v15 - Ausência de criancas ou adolescentes com até 14 anos que nasceu em outro município;1.6.2 Ausência de criancas ou adolescentes com até 14 anos que nasceu em outro município;;;;;
+d1_c6;sub_v6;V6 - MIGRAÇÃO;1.6 Migração;;;;;
+d1_c7_i1;v16;v16 - Família que não é indigena nem quilombola;1.7.1 Família que não é indigena nem quilombola;;;;;
+d1_c7;sub_v7;V7 - COMUNIDADES TRADICIONAIS;1.7 Comunidades tradicionais;;;;;
+d1;comp1;AUSÊNCIA DE VULNERABILIDADE DA FAMÍLIA;1. AUSÊNCIA DE VULNERABILIDADE DA FAMÍLIA;;;;;
+d2_c1_i1;c1;c1 - Ausência de adultos analfabetos;2.1.1 Ausência de adultos analfabetos;;;;;
+d2_c1_i2;c2;c2 - Ausência de adultos analfabetos funcionais;2.1.2 Ausência de adultos analfabetos funcionais;;;;;
+d2_c1_i3;c3;c3 -Presença de  pelo menos uma pessoa com 15 anos ou mais alfabetizada;2.1.3 Presença de  pelo menos uma pessoa com 15 anos ou mais alfabetizada;;;;;
+d2_c1_i4;c4;c4 -Presença de pelo menos uma pessoa com 15 anos ou mais que frequenta ou que tenha frequentado a escola;2.1.4 Presença de pelo menos uma pessoa com 15 anos ou mais que frequenta ou que tenha frequentado a escola;;;;;
+d2_c1_i5;c5;c5 - Presença de pelo menos uma pessoa com 15 anos ou mais alfabetizada que frequenta ou tenha frequentado a escola;2.1.5 Presença de pelo menos uma pessoa com 15 anos ou mais alfabetizada que frequenta ou tenha frequentado a escola;;;;;
+d2_c1;sub_c1;C1 - ANALFABETISMO;2.1 Analfabetismo;;;;;
+d2_c2_i1;c6;c6 - Presença de pelo menos um adulto com fundamental completo;2.2.3 Presença de pelo menos um adulto com fundamental completo;;;;;
+d2_c2_i2;c7;c7 - Presença de pelo menos um adulto com secundário completo;2.2.4 Presença de pelo menos um adulto com secundário completo;;;;;
+d2_c2_i3;c8;c8 - Presença de pelo menos um adulto com alguma educação superior;2.2.5 Presença de pelo menos um adulto com alguma educação superior;;;;;
+d2_c2_i4;;c8 - Presença de pelo menos um adulto com alguma educação superior;2.2.6 Presença de pelo menos um adulto com alguma educação superior;;;;;
+d2_c2;sub_c2;C2 - ESCOLARIDADE;2.2 Escolaridade;;;;;
+d2;comp2;ACESSO AO CONHECIMENTO;2. ACESSO AO CONHECIMENTO;;;;;
+d3_c1_i1;t1;t1 - Presença de pelo menos um membro em idade ativa;3.1.1 Presença de pelo menos um membro em idade ativa;;;;;
+d3_c1_i2;t2;t2 - Mais da metade dos membros em idade ativa encontram-se ocupados na semana anterior a pesquisa;3.1.2 Mais da metade dos membros em idade ativa encontram-se ocupados na semana anterior a pesquisa;;;;;
+d3_c1;sub_t1;T1 - DISPONIBILIDADE DE TRABALHO;3.1 Disponibilidade de trabalho;;;;;
+d3_c2_i1;t3;t3 -Presença de pelo menos um ocupado no setor formal;3.2.1 Presença de pelo menos um ocupado no setor formal;;;;;
+d3_c2_i2;t4;t4 - Presença de pelo menos um ocupado em ativdade não agrícola;3.2.2 Presença de pelo menos um ocupado em ativdade não agrícola;;;;;
+d3_c2;sub_t2;T2 - QUALIDADE DO POSTO DE TRABALHO;3.2 Qualidade do posto de trabalho;;;;;
+d3_c3_i1;t5;t5 - Presença de pelo menos um ocupado com rendimento superior a 1 salário mínimo;3.3.1 Presença de pelo menos um ocupado com rendimento superior a 1 salário mínimo;;;;;
+d3_c3_i2;t6;t6 - Presença de pelo menos um ocupado com redimentos superior a 2 salários mínimo;3.3.2 Presença de pelo menos um ocupado com redimentos superior a 2 salários mínimo;;;;;
+d3_c3;sub_t3;T3 - GRUPO REMUNERAÇÃO;3.3 Remuneração;;;;;
+d3;comp3;ACESSO AO TRABALHO;3. ACESSO AO TRABALHO;;;;;
+d4_c1_i1;r1;r1 - Família tem alguma despesa mensal;4.1.1 Família tem alguma despesa mensal;;;;;
+d4_c1_i2;r2;r2 - Família possui alguma renda excluindo-se as transferências;4.1.2 Família possui alguma renda excluindo-se as transferências;;;;;
+d4_c1_i3;r3;r3 - Familia possui alguma renda;4.1.3 Familia possui alguma renda;;;;;
+d4_c1;sub_r1;R1 - DISPONIBILIDADE DE RECURSOS;4.1 Disponibilidade de recursos;;;;;
+d4_c2_i1;r4;r4 - Despesa familiar per capita superior a linha de extrema pobreza;4.2.1 Despesa familiar per capita superior a linha de extrema pobreza;;;;;
+d4_c2_i2;r5;r5 - Renda familiar per capita superior a linha da extrema pobreza;4.2.2 Renda familiar per capita superior a linha da extrema pobreza;;;;;
+d4_c2_i3;r6;r6 - Despesa com alimentos, higiene e limpeza superior a linha de extrema pobreza;4.2.3 Despesa com alimentos, higiene e limpeza superior a linha de extrema pobreza;;;;;
+d4_c2;sub_r2;R2 - EXTREMA POBREZA;4.2 Extrema pobreza;;;;;
+d4_c3_i1;r7;r7 - Despesa familiar per capita superior a linha de pobreza;4.3.1 Despesa familiar per capita superior a linha de pobreza;;;;;
+d4_c3_i2;r8;r8 - Renda familiar per capita superior a linha de pobreza;4.3.2 Renda familiar per capita superior a linha de pobreza;;;;;
+d4_c3;sub_r3;R3 - POBREZA;4.3 Pobreza;;;;;
+d4_c4_i1;r9;r9 - Maior parte da renda familiar não advem de transferência;4.4.1  Maior parte da renda familiar não advem de transferência;;;;;
+d4_c4;sub_r4;R4 - CAPACIDADE DE GERAÇÃO DE RENDA;4.4 Capacidade de geração de renda;;;;;
+d4;comp4;DISPONIBILIDADE DE RECURSOS;4- DISPONIBILIDADE DE RECURSOS;;;;;
+d5_c1_i1;d1;d1 - Ausência de crianças com menos de 12 anos trabalhando;5.1.1 Ausência de crianças com menos de 12 anos trabalhando;;;;;
+d5_c1_i2;d2;d2 - Ausência de crianças com menos de 14 anos;5.1.2 Ausência de crianças com menos de 14 anos trabalhando;;;;;
+d5_c1_i3;d3;d3 - Ausência de crianças com menos de 16 anos trabalhando;5.1.3 Ausência de crianças com menos de 16 anos trabalhando;;;;;
+d5_c1;sub_d1;D1 - TRABALHO PRECOCE;5.1 Trabalho precoce;;;;;
+d5_c2_i1;d4;d4 - Ausência de criança de 4-6 anos fora da escola;5.2.1 Ausência de criança de 4-6 anos fora da escola;;;;;
+d5_c2_i2;d5;d5 - Ausência de criança de 7-14 anos fora da escola;5.2.2 Ausência de criança de 7-14 anos fora da escola;;;;;
+d5_c2_i3;d6;d6 - Ausência de pelo menos uma criança de 7-17 anos fora da escola;5.2.3 Ausência de pelo menos uma criança de 7-17 anos fora da escola;;;;;
+d5_c2;sub_d2;D2 - ACESSO A ESCOLA;5.2 Acesso à escola;;;;;
+d5_c3_i1;d7;d7 - Ausência de criança com até 14 anos com mais de 2 anos de atraso;5.3.1  Ausência de criança com até 14 anos com mais de 2 anos de atraso;;;;;
+d5_c3_i2;d8;d8 - Ausência de pelo menos um adolescente de 10 a 14 anos analfabeto;5.3.2 Ausência de pelo menos um adolescente de 10 a 14 anos analfabeto;;;;;
+d5_c3_i3;d9;d9 - Ausência de pelo menos um jovem de 15 a 17 anos analfabeto;5.3.3 Ausência de pelo menos um jovem de 15 a 17 anos analfabeto;;;;;
+d5_c3;sub_d3;D3 - PROGRESSO ESCOLAR;5.3 Progresso Escolar;;;;;
+d5;comp5;DESENVOLVIMENTO INFANTIL;5. DESENVOLVIMENTO INFANTIL;;;;;
+d6_c1_i1;h1;h1 - Domicílio particular ou coletivo;6.1.1 Domicílio particular ou coletivo;;;;;
+d6_c1_i2;h2;h2 - Domicílio particular permanente ou provisório;6.1.2 Domicílio particular permanente ou provisório;;;;;
+d6_c1_i3;h3;h3 - Domicílio particular permanente;6.1.3 Domicílio particular permanente;;;;;
+d6_c1;sub_h1;H1 - PROPRIEDADE DO DOMICÍLIO;6.1 Propriedade do domicílio;;;;;
+d6_c2_i1;h4;h4 - Densidade de até 2 moradores por dormitório;6.2.1 Densidade de até 2 moradores por dormitório;;;;;
+d6_c2;sub_h2;H2 - DENSIDADE DE ATÉ 2 MORADORES POR DORMITÓRIO;6.2 Densidade de até 2 moradores por dormitório;;;;;
+d6_c3_i1;h5;h5 - Material de construção permanente;6.3.1 Material de construção permanente;;;;;
+d6_c3;sub_h3;H3 - ABRIGABILIDADE;6.3 Abrigabilidade;;;;;
+d6_c4_i1;h6;h6 - Acesso adequado à água de rede geral de distribuição;6.4.1 Acesso adequado à água de rede geral de distribuição;;;;;
+d6_c4_i2;h7;h7 - Acesso adequado à água;6.4.2 Acesso adequado à água;;;;;
+d6_c4;sub_h4;H4 - ACESSO ADEQUADO À ÁGUA;6.4 Acesso adequado à água;;;;;
+d6_c5_i1;h8;h8 - Domicílio possui banheiro ou sanitário;6.5.1 Domicílio possui banheiro ou sanitário;;;;;
+d6_c5_i2;h9;h9 - Esgotamento sanitário adequado;6.5.2 Esgotamento sanitário adequado;;;;;
+d6_c5;sub_h5;H5 - ACESSO ADEQUADO À ESGOTAMENTO SANITARIO;6.5 Acesso adequado à esgotamento sanitário;;;;;
+d6_c6_i1;h10;h10 - Lixo coletado de forma direta;6.6.1 Lixo coletado de forma direta;;;;;
+d6_c6_i2;h11;h11 - Lixo coletado de forma direta e indireta;6.6.2 Lixo coletado de forma direta e indireta;;;;;
+d6_c6;sub_h6;H6 - ACESSO A COLETA DE LIXO;6.6 Acesso a coleta de lixo;;;;;
+d6_c7_i1;h12;h12 - Acesso à eletricidade com motor de uso;6.7.1 Acesso à eletricidade com motor de uso;;;;;
+d6_c7_i2;h13;h13 - Acesso à eletricidade;6.7.2 Acesso à eletricidade;;;;;
+d6_c7;sub_h7;H7 - ACESSO À ELETRICIDADE;6.7 Acesso à eletricidade;;;;;
+d6_c8_i1;h14;h14 - Domicílio localizado em trecho de logradouro com caçamba/pavimentacao total;6.8.1 Domicílio localizado em trecho de logradouro com caçamba/pavimentacao total;;;;;
+d6_c8_i2;h15;h15 - Domicílio localizado em trecho de logradouro com caçamba/pavimentação total ou parcial;6.8.2 Domicílio localizado em trecho de logradouro com caçamba/pavimentação total ou parcial;;;;;
+d6_c8;sub_h8;H8 - GRUPO PAVIMENTAÇÃO;6.8 Pavimentação;;;;;
+d6;comp6;CONDIÇÕES HABITACIONAIS;6. CONDIÇÕES HABITACIONAIS;;;;;
+idf;idf;IDF - Índice de Desenvolvimento da Família;0. IDF - Índice de Desenvolvimento da Família;;;;;
+data_ref;-;Data de referência do Cadastro Único;Data de referência do Cadastro Único;;;;;

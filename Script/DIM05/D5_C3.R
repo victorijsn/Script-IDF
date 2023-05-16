@@ -45,14 +45,17 @@ D5_C3 <- function(base, com_comp=F){
   source("Script/DIM05/D5_C3_indicador1.R", 
          encoding = "UTF-8") 
   source("Script/DIM05/D5_C3_indicador2.R",
+         encoding = "UTF-8")
+  source("Script/DIM05/D5_C3_indicador3.R",
          encoding = "UTF-8") 
   
   # calculando os indicadores e definindo chave primária --------------------
   
   dado1 <- D5_C3_I1(dado); setkey(dado1, d.cod_familiar_fam)
   dado2 <- D5_C3_I2(dado); setkey(dado2, d.cod_familiar_fam)
+  dado3 <- D5_C3_I3(dado); setkey(dado3, d.cod_familiar_fam)
   
-  lista_indicadores <- list(dado1, dado2)
+  lista_indicadores <- list(dado1, dado2, dado3)
   
   # relacionando os indicadores para cada família ---------------------------
   
@@ -66,7 +69,8 @@ D5_C3 <- function(base, com_comp=F){
   # calculando o componente -------------------------------------------------
   
   dado[, d5_c3 := rowMeans(as.data.table(.(d5_c3_i1,
-                                           d5_c3_i2)), 
+                                           d5_c3_i2,
+                                           d5_c3_i3)), 
                            na.rm = TRUE )]
   
   

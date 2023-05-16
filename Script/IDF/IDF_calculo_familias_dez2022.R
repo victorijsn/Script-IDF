@@ -256,6 +256,7 @@ base_final <- merge.data.table(x = info_fam,
                                y = IDF)
 
 base_final <- base_final[!is.na(idf)]
+base_final[,data_ref:=data_referencia]
 
 # Limpeza
 rm(list = c(ls(pattern = "dado[[:alnum:]]*"),

@@ -4,25 +4,25 @@
 # Pacotes -----------------------------------------------------------------
 
 library(data.table)
-library(lubridate)
 
 # Base de dados -----------------------------------------------------------
 
 base <- arrow::read_parquet("bases/saida_idf_familias.parquet", ) |> 
   data.table::setDT()
 
-dmunic <- fread("bases/dMunic.csv", encoding = "UTF-8") 
-
-
 # Agregacoes --------------------------------------------------------------
-
-idf_munic <- base[,lapply(.SD,mean, na.rm=T),
-                   by = "cod_ibge",
-                   .SDcols = c(5:101)] |> setkey(cod_ibge)
 
 pesos_munic <- base[,.(total_cadastros=sum(total_cadastros),
                        total_familias = .N),
                     by = "cod_ibge"] |> setkey(cod_ibge)
 
-base_munic <- merge.data.table(x = pesos_munic,
-                               y = idf_munic)
+pesos_munic <- melt.data.table(base, id.vars = 1:4,
+                               measure.vars = 5:101,
+                               variable.name = "COD_idf",
+                               value.name = "indice")
+
+pesos_munic <- pesos_munic[!is.na(indice),.(indice=mean(indice),
+                                            pesos = uniqueN(d.cod_familiar_fam)),
+                           by = c("cod_ibge", "COD_idf")] |> setkey(cod_ibge)
+
+arrow::write_parquet(pesos_munic, "bases/saida_idf_municipios.parquet")
