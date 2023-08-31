@@ -2,18 +2,15 @@
 
 ## Introdução
 
-Interpretar adequadamente a realidade é essencial no processo de análise para tomadas de decisões. No entanto, dependendo da complexidade do cenário a ser observado, atingir esse objetivo se torna um trabalho árduo, uma vez que a temática e o volume dos dados interfere na maneira de obter ferramentas estratégicas e/ou operacionais.
+Interpretar a realidade de forma objetiva é essencial no processo de análise para tomadas de decisões. Dependendo da complexidade do fenômeno a ser observado, atingir esse objetivo se torna um trabalho árduo, já que a temática social e o volume dos dados interferem na maneira de obter ferramentas estratégicas e/ou operacionais.
 
-Independente dos desafios, é indiscutível a utilização de dados que gerem informações a serem usadas para dispor um cenário próximo da realidade. Em paralelo, a criação de indicadores é uma alternativa válida, pois reúnem esses dados em uma única medida, facilitando a compreensão e comunicação dos resultados obtidos. Um outro benefício no uso dos indicadores seria obtê-los periodicamente no intuito de realizar comparações temporais e, dessa forma, verificar as alterações ocorridas em relação ao tempo. 
-
-Embora a ideia geral seja mensurar conceitos abstratos, há diferentes indicadores que são escolhidos de acordo com os dados disponíveis e a sua finalidade. O indicador analítico mensura elementos de uma forma objetiva e direta. Isso ocorre devido ao fato de serem unidimensionais e precisarem apenas de uma variável de cálculo. Um exemplo seria contar a quantidade de famílias que possuem crianças de 0 a 6 anos de idade, ou mulheres com renda menor que um salário mínimo. Essas informações se sustentam com apenas uma variável, idade e valor da renda, por exemplo. É claro que na prática há a possibilidade de precisar de uma variável auxiliar a fim de tratar ou deixar nos padrões desejados essas variáveis, mas, conceitualmente falando, elas não dependem de mais de uma dimensão.
+Embora a ideia geral seja mensurar conceitos abstratos, há diferentes tipos indicadores que são escolhidos de acordo com os dados disponíveis e a sua finalidade. O indicador analítico mensura elementos de uma forma objetiva e direta. Isso ocorre devido ao fato de serem unidimensionais e precisarem apenas de uma variável de cálculo. Um exemplo seria contar a quantidade de famílias que possuem crianças de 0 a 6 anos de idade, ou mulheres com renda menor que um salário mínimo. Essas informações se sustentam com apenas uma variável, idade e valor da renda, por exemplo. É claro que na prática há a possibilidade de precisar de uma variável auxiliar a fim de tratar ou deixar nos padrões desejados essas variáveis, mas, conceitualmente falando, elas não dependem de mais de uma dimensão.
 
 Por outro lado, o indicador sintético estima conceitos multidimensionais, ou seja, contempla várias variáveis de cálculo em sua composição. A pobreza é um exemplo de um conceito multidimensional, pois envolve esferas como saúde, renda, educação e outras áreas que podem ser consideradas para constituí-lo. Desse modo, ocorre a condensação dessas várias dimensões para sintetizar, em uma única medida, a pobreza.
 
 Um indicador sintético popularmente conhecido é o Índice de Desenvolvimento Humano (IDH). Esse índice foi criado no início da década de 1990 pelo Programa das Nações Unidas para o Desenvolvimento (PNUD) com o intuito de medir o desenvolvimento populacional por região. As dimensões que o IDH contempla são a saúde (*esperança de vida ao nascer*), educação (*média de anos de estudo e os anos de estudo esperados*) e renda (*PIB per capita*). Elas são utilizadas para definir seus valores e seus dados são coletados a partir do censo populacional e a nível municipal.
 
-A aplicação dos valores obtidos a partir dos indicadores 
-é visualizada na elaboração de ferramentas de gestão e seleção, tais como uma fila de prioridade ou painéis para análises. O Bolsa Capixaba^[Programa de transferência de renda realizado pelo Governo Estadual do Espírito Santo. Saiba mais em: setades.es.gov.br/Acessar-o-beneficio-do-Bolsa-Capixaba] é um exemplo de programa que prioriza seus beneficiários por meio de um indicador sintético. 
+A aplicação dos valores obtidos a partir dos indicadores é visualizada na elaboração de ferramentas de gestão e seleção, tais como uma fila de prioridade ou painéis para análises. O Bolsa Capixaba^[Programa de transferência de renda realizado pelo Governo Estadual do Espírito Santo. Saiba mais em: setades.es.gov.br/Acessar-o-beneficio-do-Bolsa-Capixaba] é um exemplo de programa que prioriza seus beneficiários por meio de um indicador sintético. 
 
 Entretanto, conseguir esses indicadores para aplicá-los demanda um esforço operacional, tanto por consequência da complexidade de calculá-los quanto pela necessidade de atualizá-los periodicamente. É apropriado, portanto, a utilização de ferramentas computacionais no seu processo de obtenção. Mais precisamente, a elaboração de uma rotina de cálculo fornece uma sequência de etapas pela qual se obtém os indicadores, garantindo a replicação do cálculo e podendo ser utilizadas por outras equipes ou órgãos, tanto com o objetivo de validar os dados ou para reaplicação em outros contextos.
 
@@ -85,12 +82,13 @@ Para gerar o índice, foram criadas funções para os indicadores, componentes, 
 
 A primeira seleção que deve ser feita é em relação às informações do público alvo. Isto é, coletar os dados das pessoas cujo objetivo é ter seu desempenho social mensurado.
 
-Por esse motivo, o IDF utiliza a base de dados do Cadastro Único^[O Cadastro Único é um sistema estruturado de acordo com o Decreto 9364 de 2001 e visa reunir as informações das famílias mais vulneráveis do Brasil. Saiba mais em: <https://www.gov.br/pt-br/servicos/inscrever-se-no-cadastro-unico-para-programas-sociais-do-governo-federal>]
-, pois é onde há os registros necessários para o cálculo dos indicadores, servido de base para o cálculo do índice. 
+Por esse motivo, o IDF utiliza a base de dados do Cadastro Único^[O Cadastro Único é um sistema estruturado de acordo com o Decreto 9364 de 2001 e visa reunir as informações das famílias mais vulneráveis do Brasil. Saiba mais em: <https://www.gov.br/pt-br/servicos/inscrever-se-no-cadastro-unico-para-programas-sociais-do-governo-federal>], pois é onde há os registros necessários para o cálculo dos indicadores, servido de base para o cálculo do índice. 
 
 Um exemplo é, se quisermos gerar o IDF para as famílias que residem no Espírito Santo, é no Cadastro Único que terá as informações das famílias e de seus integrantes mais vulneráveis nesta região. 
 
-Uma característica do Cadastro Único é o fato de possuir o código familiar, sendo usado como número de identificação. Este valor servirá como chave-primária para o processo de análise e manipulação dos dados. No final de todo o processo da geração do IDF, cada família receberá um único valor. Outro ponto é o fato de que cada família possui seu representante, sendo este o encarregado de prestar as informações de toda a família. 
+Uma característica do Cadastro Único é o fato de possuir o código familiar, sendo usado como número de identificação. Este valor servirá como chave-primária para o processo de análise e manipulação dos dados. No final de todo o processo da geração do IDF, cada família receberá um único valor. Outro ponto é o fato de que cada família possui seu representante, sendo este o encarregado de prestar as informações de toda a família.
+
+No caso deste script, os nomes das variáveis levam em consideração a nomenclatura divulgada pelo CECAD (Consulta, Seleção e Extração de Informações do CadÚnico) e há neste repositório um arquivo que traduz os nomes das variáveis.
 
 #### Parâmetros da função
 
