@@ -1,4 +1,4 @@
-# Metodologia de cálculo do Índice de Desenvolvimento das Família (IDF)
+# Metodologia de cálculo do Índice de Desenvolvimento Familiar (IDF) com base no Cadastro Único
 
 ## Introdução
 
